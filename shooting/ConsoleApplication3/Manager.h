@@ -6,11 +6,13 @@
 class Manager
 {
 	char* pstage;
-	int countobject;
+	int countBullet;
 	int len;
-	int enemycount;
 	int killscore;
-	float playtime;
+	int countSpawntime;
+	int countReloadtime;
+	int countEMovetime;
+	int magazine;
 
 	Object *pob[100];
 public:
@@ -20,8 +22,13 @@ public:
 	int initializing();
 	bool isPointinObject(int point,Object* object);
 	bool isObjectinObject(Object* target, Object* base);
+	int searchNearEnemy();
 	int hitkb();
 	int update();
 	int rander();
+	void cooldowncount();
+	bool shootBullet();
+
+	int getkillscore() { return killscore; }
 };
 

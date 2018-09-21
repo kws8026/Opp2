@@ -3,12 +3,10 @@
 
 class User : public Object
 {
-	int magazine;
-	int reloadCD;
+	int countdamage;
 public:
-	User(char r[], int p) :Object(r, p, 1), magazine(10), reloadCD(0){};
+	User(char r[], int p) :Object(r, p, 1), countdamage(0) {};
 	~User();
-
-	void reload();
+	int rander(char stage[], char* other);
 };
 

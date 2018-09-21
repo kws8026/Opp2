@@ -8,7 +8,7 @@ using namespace std;
 class Object
 {
 protected:
-	char randering[3];
+	char randering[10];
 	int pos;
 	int size;
 	int state; // 0 사망 1 생존 2 피격
@@ -18,7 +18,7 @@ public:
 	Object(char r[] = nullptr, int p = 0, int state = 0) : pos(p) , size((int)strlen(r)), state(state), hp(10)
 	{
 		if (r == nullptr) return;
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < size; i++)
 		{
 			randering[i] = r[i];
 		}
@@ -36,11 +36,13 @@ public:
 	int getpos() { return pos; }
 	int getsize() { return size; }
 	int getstate() { return state; }
+	int gethp() { return hp; }
 	void setstate(int num) { state = num; }
 	void setpos(int num) { pos = num; }
+	void sethp(int num) { hp = num; }
 	
 	virtual int damaged(int i);
 	virtual int rander(char stage[], char* other = nullptr);
-	void movepos(int vecterX, int len);
+	virtual void movepos( int len, int vecterX = 0);
 };
 

@@ -13,6 +13,10 @@ Object::~Object()
 
 int Object::damaged(int i)
 {
+	if (!state)
+		return -1;
+	hp -= i;
+	state = 2;
 	return 0;
 }
 
@@ -30,7 +34,7 @@ int Object::rander(char stage[], char* other)
 	return 0;
 }
 
-void Object::movepos(int vecterX,int len)
+void Object::movepos(int len, int vecterX)
 {
 	pos += vecterX;
 	if (pos > len - size)

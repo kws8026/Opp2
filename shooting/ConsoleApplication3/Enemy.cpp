@@ -8,12 +8,12 @@ Enemy::~Enemy()
 
 int Enemy::rander(char stage[], char* other)
 {
-	if (state == 1)
+	if (state == 2)
 	{ 
 		countstun++;
 		if (countstun > 50) {
 			countstun = 0;
-			state = 0;
+			state = 1;
 		}
 		return Object::rander(stage,"@.@");
 	}
